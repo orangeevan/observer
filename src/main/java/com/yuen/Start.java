@@ -16,6 +16,11 @@ public class Start {
         new Thread(() -> {
             controller.attachOne(Start.Event.class, () -> System.out.println("2"));
         }).start();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         new Thread(() -> {
             controller.fire(Start.Event.class);
         }).start();
